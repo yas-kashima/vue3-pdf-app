@@ -13,21 +13,22 @@
   </div>
 </template>
 
-<script>
-import "@/sass/icons.scss";
+<script lang="ts">
+import '@/sass/icons.scss'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   methods: {
-    toggleDirection() {
-      const dir = document.documentElement.getAttribute("dir");
-      const newDir = dir === "rtl" ? "ltr" : "rtl";
-      document.documentElement.setAttribute("dir", newDir);
+    toggleDirection () {
+      const dir = document.documentElement.getAttribute('dir')
+      const newDir = dir === 'rtl' ? 'ltr' : 'rtl'
+      document.documentElement.setAttribute('dir', newDir)
     },
-    clearCache() {
-      window.localStorage.clear();
-    },
-  },
-};
+    clearCache () {
+      window.localStorage.clear()
+    }
+  }
+})
 </script>
 
 <style>

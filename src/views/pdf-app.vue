@@ -16,14 +16,15 @@
   </pdf-viewer>
 </template>
 
-<script>
-import PdfViewer from "@/components/pdf-viewer.vue";
+<script lang="ts">
+import PdfViewer from '@/components/pdf-viewer.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
-    PdfViewer,
+    PdfViewer
   },
-  data() {
+  data () {
     return {
       config: {
         // toolbar: {
@@ -32,23 +33,23 @@ export default {
         //   },
         // },
       },
-      scale: "1",
-      pdf: "/sample.pdf",
-    };
+      scale: '1',
+      pdf: '/sample.pdf'
+    }
   },
   methods: {
-    afterCreated(pdfApp) {
-      window._pdfApp = pdfApp;
-      console.log("===***=== After created");
+    afterCreated (pdfApp) {
+      // window._pdfApp = pdfApp
+      console.log('===***=== After created')
     },
-    open() {
-      console.log("===***=== Opened");
+    open () {
+      console.log('===***=== Opened')
     },
-    pagesRendered() {
-      console.log("===***=== Pages rendered");
-    },
-  },
-};
+    pagesRendered () {
+      console.log('===***=== Pages rendered')
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

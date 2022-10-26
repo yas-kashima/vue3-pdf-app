@@ -15,20 +15,21 @@
   </vue-pdf-app>
 </template>
 
-<script>
-import VuePdfApp from "@/components/pdf-viewer.vue";
+<script lang="ts">
+import VuePdfApp from '@/components/pdf-viewer.vue'
+import { defineComponent } from 'vue'
 
-export default {
-  name: "ThemeToggling",
+export default defineComponent({
+  name: 'ThemeToggling',
   components: {
-    VuePdfApp,
+    VuePdfApp
   },
-  data() {
+  data () {
     return {
-      theme: "dark",
-    };
-  },
-};
+      theme: 'dark'
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

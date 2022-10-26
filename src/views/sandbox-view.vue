@@ -312,75 +312,76 @@
   </div>
 </template>
 
-<script>
-import "@mdi/font/css/materialdesignicons.css";
-import PdfViewer from "@/components/pdf-viewer.vue";
+<script lang="ts">
+import '@mdi/font/css/materialdesignicons.css'
+import PdfViewer from '@/components/pdf-viewer.vue'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   components: {
-    PdfViewer,
+    PdfViewer
   },
-  data() {
+  data () {
     return {
       idConfig: {
-        cursorHandTool: "vuePdfAppCursorHandTool",
-        cursorSelectTool: "vuePdfAppCursorSelectTool",
-        documentProperties: "vuePdfAppDocumentProperties",
-        download: "vuePdfAppDownload",
-        findbar: "vuePdfAppFindbar",
-        findEntireWord: "vuePdfAppFindEntireWord",
-        findHighlightAll: "vuePdfAppFindHighlightAll",
-        findInput: "vuePdfAppFindInput",
-        findMessage: "vuePdfAppFindMessage",
-        findMatchCase: "vuePdfAppFindMatchCase",
-        findNext: "vuePdfAppFindNext",
-        findPrevious: "vuePdfAppFindPrevious",
-        findResultsCount: "vuePdfAppFindResultsCount",
-        firstPage: "vuePdfAppFirstPage",
-        lastPage: "vuePdfAppLastPage",
-        nextPage: "vuePdfAppNextPage",
-        numPages: "vuePdfAppNumPages",
-        openFile: "vuePdfAppOpenFile",
-        pageNumber: "vuePdfAppPageNumber",
-        pageRotateCcw: "vuePdfAppPageRotateCcw",
-        pageRotateCw: "vuePdfAppPageRotateCw",
-        presentationMode: "vuePdfAppPresentationMode",
-        previousPage: "vuePdfAppPreviousPage",
-        print: "vuePdfAppPrint",
-        scrollHorizontal: "vuePdfAppScrollHorizontal",
-        scrollVertical: "vuePdfAppScrollVertical",
-        scrollWrapped: "vuePdfAppScrollWrapped",
-        sidebarToggle: "vuePdfAppSidebarToggle",
-        spreadEven: "vuePdfAppSpreadEven",
-        spreadNone: "vuePdfAppSpreadNone",
-        spreadOdd: "vuePdfAppSpreadOdd",
-        toggleFindbar: "vuePdfAppToggleFindbar",
-        viewAttachments: "vuePdfAppViewAttachments",
-        viewBookmark: "vuePdfAppViewBookmark",
-        viewOutline: "vuePdfAppViewOutline",
-        viewThumbnail: "vuePdfAppViewThumbnail",
-        zoomIn: "vuePdfAppZoomIn",
-        zoomOut: "vuePdfAppZoomOut",
+        cursorHandTool: 'vuePdfAppCursorHandTool',
+        cursorSelectTool: 'vuePdfAppCursorSelectTool',
+        documentProperties: 'vuePdfAppDocumentProperties',
+        download: 'vuePdfAppDownload',
+        findbar: 'vuePdfAppFindbar',
+        findEntireWord: 'vuePdfAppFindEntireWord',
+        findHighlightAll: 'vuePdfAppFindHighlightAll',
+        findInput: 'vuePdfAppFindInput',
+        findMessage: 'vuePdfAppFindMessage',
+        findMatchCase: 'vuePdfAppFindMatchCase',
+        findNext: 'vuePdfAppFindNext',
+        findPrevious: 'vuePdfAppFindPrevious',
+        findResultsCount: 'vuePdfAppFindResultsCount',
+        firstPage: 'vuePdfAppFirstPage',
+        lastPage: 'vuePdfAppLastPage',
+        nextPage: 'vuePdfAppNextPage',
+        numPages: 'vuePdfAppNumPages',
+        openFile: 'vuePdfAppOpenFile',
+        pageNumber: 'vuePdfAppPageNumber',
+        pageRotateCcw: 'vuePdfAppPageRotateCcw',
+        pageRotateCw: 'vuePdfAppPageRotateCw',
+        presentationMode: 'vuePdfAppPresentationMode',
+        previousPage: 'vuePdfAppPreviousPage',
+        print: 'vuePdfAppPrint',
+        scrollHorizontal: 'vuePdfAppScrollHorizontal',
+        scrollVertical: 'vuePdfAppScrollVertical',
+        scrollWrapped: 'vuePdfAppScrollWrapped',
+        sidebarToggle: 'vuePdfAppSidebarToggle',
+        spreadEven: 'vuePdfAppSpreadEven',
+        spreadNone: 'vuePdfAppSpreadNone',
+        spreadOdd: 'vuePdfAppSpreadOdd',
+        toggleFindbar: 'vuePdfAppToggleFindbar',
+        viewAttachments: 'vuePdfAppViewAttachments',
+        viewBookmark: 'vuePdfAppViewBookmark',
+        viewOutline: 'vuePdfAppViewOutline',
+        viewThumbnail: 'vuePdfAppViewThumbnail',
+        zoomIn: 'vuePdfAppZoomIn',
+        zoomOut: 'vuePdfAppZoomOut'
       },
-      pdf: "sample.pdf",
-    };
+      pdf: 'sample.pdf'
+    }
   },
   methods: {
-    afterCreated(pdfApp) {
-      window._pdfApp = pdfApp;
-      console.log("===***=== After created");
+    afterCreated (pdfApp) {
+      // window._pdfApp = pdfApp
+      console.log('===***=== After created')
     },
-    open() {
-      console.log("===***=== Opened");
+    open () {
+      console.log('===***=== Opened')
     },
-    pagesRendered() {
-      console.log("===***=== Pages rendered");
+    pagesRendered () {
+      console.log('===***=== Pages rendered')
     },
-    togglePdf() {
-      this.pdf = !this.pdf ? "sample.pdf" : null;
-    },
-  },
-};
+    togglePdf () {
+      this.pdf = !this.pdf ? 'sample.pdf' : null
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
