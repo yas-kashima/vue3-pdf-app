@@ -1,8 +1,6 @@
-VUEjs v2 PDF viewer based on Mozilla's PDFJS.
+Vue 3 PDF viewer based on Mozilla's PDFJS. Forked from https://github.com/sandanat/vue-pdf-app.
 
-[![](https://data.jsdelivr.com/v1/package/npm/vue-pdf-app/badge)](https://www.jsdelivr.com/package/npm/vue-pdf-app)
-
-[![npm version](https://badge.fury.io/js/vue-pdf-app.svg)](https://badge.fury.io/js/vue-pdf-app)
+![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)
 
 100% PDFJS functionality:
 
@@ -18,7 +16,7 @@ VUEjs v2 PDF viewer based on Mozilla's PDFJS.
 
 Easily localized configurable toolbar
 
-<sup style="color: red">NEW</sup> Toolbar custom UI
+Toolbar custom UI
 
 Cross-browser support (including IE11)
 
@@ -30,15 +28,6 @@ Light/dark themes
 
 Built-in typescript support
 
-UMD/Unpkg support:
-
-| File                   | Size                               | Gzipped    |
-| ---------------------- | ---------------------------------- | ---------- |
-| vue-pdf-app.umd.min.js | 1742.89 KiB                        | 478.86 KiB |
-| vue-pdf-app.umd.js     | 3115.59 KiB                        | 677.87 KiB |
-| vue-pdf-app.common.js  | 3115.12 KiB                        | 677.71 KiB |
-| icons/main.css         | 15 - 40 KiB (depends from browser) |            |
-
 # Example
 
 ```vue
@@ -49,9 +38,9 @@ UMD/Unpkg support:
 </template>
 
 <script>
-import VuePdfApp from "vue-pdf-app";
+import VuePdfApp from "vue3-pdf-app";
 // import this to use default icons for buttons
-import "vue-pdf-app/dist/icons/main.css";
+import "vue3-pdf-app/dist/icons/main.css";
 
 export default {
   components: {
@@ -63,13 +52,9 @@ export default {
 
 ![pdf sample](./readme/sample.png "Pdf expample")
 
-[Live demo](https://codesandbox.io/s/vue-2-vue-pdf-app-wz5kv)
+[Live demo](https://codesandbox.io/s/vue3-pdf-app-wnh9zs?file=/src/App.vue)
 
-[Live demo 2](https://codepen.io/sandanat/pen/xxVdgYM)
-
-[Examples source code](https://github.com/sandanat/vue-pdf-app/tree/master/examples "Examples source code")
-
-[FAQ](https://github.com/sandanat/vue-pdf-app/blob/master/FAQ.md)
+[FAQ](https://github.com/stellr42/vue3-pdf-app/blob/master/FAQ.md)
 
 # API
 
@@ -108,7 +93,7 @@ export default {
 <vue-pdf-app :theme.sync="theme" />
 ```
 
-## <sup style="color: red">new</sup> :fileName
+## :fileName
 
 - Description: when pdf is passed like an array buffer default download file name is `document.pdf`. Set this prop to override it.
 - Type: `string`
@@ -119,7 +104,7 @@ export default {
 <vue-pdf-app :pdf="ArrayBuffer" file-name="file name" />
 ```
 
-## <sup style="color: red">new</sup> :pageScale
+## :pageScale
 
 - Description: default page scale.
 - Type: `number | "page-actual"| "page-width"| "page-height"| "page-fit"| "auto"`
@@ -133,7 +118,7 @@ export default {
 <vue-pdf-app :page-scale="page-actual" />
 ```
 
-## <sup style="color: red">new</sup> :pageNumber
+## :pageNumber
 
 - Description: pdfjs stores last viewed page of a file in `window.localStorage.getItem("pdfjs.history")`. Specify the prop to override it.
 - Type: `number`
@@ -244,7 +229,7 @@ export default {
 </code>
 </details>
 
-## <sup style="color: red">new</sup> :id-config
+## :id-config
 
 - Description: If default toolbar UI doesn't suite you it is possible to build custom toolbar. The prop contains elements ID to which to bind functionality. If element ID is specified in this prop appropriate button will be hidden in a default toolbar. May not work with UI framework components. That is because pdfjs internally manages attributes specific to a certain HTML element (for instance pdfjs toggles `disabled` attribute of a button but it won't if a div is used instead of a button). So it is better to use native HTML element specified as recommended in ID config specification below. Four slots are specially designed to build custom toolbar (are situated near a pdf page): `viewer-header, viewer-prepend, viewer-append, viewer-footer` (refer slots API). It is also possible to use other slots or elements outside vue-pdf-app.
 - Type: `ID config (see below)`
@@ -388,10 +373,10 @@ export default {
 - secondary-toolbar-prepend
 - secondary-toolbar-append
 - footer
-- <sup style="color: red">NEW</sup> viewer-header: slot before `viewer-prepend` slot. Can be used to build custom toolbar.
-- <sup style="color: red">NEW</sup> viewer-prepend: slot before `viewerContainer` div. Can be used to build custom toolbar.
-- <sup style="color: red">NEW</sup> viewer-append: slot after `viewerContainer` div. Can be used to build custom toolbar.
-- <sup style="color: red">NEW</sup> viewer-footer: slot after `viewer-append` slot. Can be used to build custom toolbar.
+-  viewer-header: slot before `viewer-prepend` slot. Can be used to build custom toolbar.
+-  viewer-prepend: slot before `viewerContainer` div. Can be used to build custom toolbar.
+-  viewer-append: slot after `viewerContainer` div. Can be used to build custom toolbar.
+-  viewer-footer: slot after `viewer-append` slot. Can be used to build custom toolbar.
 
 ### Slot props
 
@@ -403,13 +388,13 @@ Each slot has props:
 
    Description: toggle theme handler
 
-1. <sup style="color: red">NEW</sup> isSidebarHidden
+1.  isSidebarHidden
 
    Type: boolean
 
    Description: state of a sidebar (visible or hidden). Can be used to manage visibility of custom Attachments, Outline and Thumbnail buttons
 
-1. <sup style="color: red">NEW</sup> isFindbarHidden
+1.  isFindbarHidden
 
    Type: boolean
 
@@ -716,7 +701,7 @@ Colors of the pdf viewer are customized via custom css properties:
 
 # Icons customization
 
-To use default icons `import "vue-pdf-app/dist/icons/main.css";`.
+To use default icons `import "vue3-pdf-app/dist/icons/main.css";`.
 
 To use custom icons you have to implement [icons.css](https://github.com/sandanat/vue-pdf-app/blob/master/src/sass/icons.scss):
 
@@ -757,69 +742,6 @@ Use `<link rel="resource" type="application/l10n" href="path-to-localization-fil
 See [localization file examples](https://github.com/mozilla/pdf.js/tree/master/l10n "file examples").
 
 # Examples
-
-## Script tag (unpkg)
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <title>Vue-pdf-app demo</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/vue-pdf-app@2.0.0/dist/icons/main.css"
-    />
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/vue-pdf-app@2.0.0"></script>
-    <style>
-      body,
-      html {
-        padding: 0;
-        margin: 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="app" style="height: 100vh;">
-      <vue-pdf-app pdf="/sample.pdf"></vue-pdf-app>
-    </div>
-    <script>
-      new Vue({
-        components: {
-          VuePdfApp: window["vue-pdf-app"]
-        }
-      }).$mount("#app");
-    </script>
-  </body>
-</html>
-```
-
-## Typescript
-
-```vue
-<template>
-  <div id="app">
-    <vue-pdf-app pdf="/sample.pdf"></vue-pdf-app>
-  </div>
-</template>
-
-<script lang="ts">
-import "vue-pdf-app/dist/icons/main.css";
-import VuePdfApp from "vue-pdf-app";
-import { Component, Vue } from "vue-property-decorator";
-
-@Component({
-  components: {
-    VuePdfApp
-  }
-})
-export default class App extends Vue {}
-</script>
-```
-
 ## Lazy loading
 
 PDFJS is a huge package (see the library size table above).
@@ -833,7 +755,7 @@ So use lazy loading to split your bundle into small pieces.
 </template>
 
 <script>
-import "vue-pdf-app/dist/icons/main.css";
+import "vue3-pdf-app/dist/icons/main.css";
 import Loader from "./components/Loader.vue";
 
 export default {
@@ -874,8 +796,8 @@ You can interact with pdfjs library when pdf is opened via `open` event.
 </template>
 
 <script>
-import "vue-pdf-app/dist/icons/main.css";
-import VuePdfApp from "vue-pdf-app";
+import "vue3-pdf-app/dist/icons/main.css";
+import VuePdfApp from "vue3-pdf-app";
 
 export default {
   name: "App",
