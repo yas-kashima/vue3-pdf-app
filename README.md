@@ -1,6 +1,6 @@
 Vue 3 PDF viewer based on Mozilla's PDFJS. Forked from https://github.com/sandanat/vue-pdf-app.
 
-![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)
+[![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)](https://www.npmjs.com/package/vue3-pdf-app)
 
 100% PDFJS functionality:
 
@@ -231,7 +231,7 @@ export default {
 
 ## :id-config
 
-- Description: If default toolbar UI doesn't suite you it is possible to build custom toolbar. The prop contains elements ID to which to bind functionality. If element ID is specified in this prop appropriate button will be hidden in a default toolbar. May not work with UI framework components. That is because pdfjs internally manages attributes specific to a certain HTML element (for instance pdfjs toggles `disabled` attribute of a button but it won't if a div is used instead of a button). So it is better to use native HTML element specified as recommended in ID config specification below. Four slots are specially designed to build custom toolbar (are situated near a pdf page): `viewer-header, viewer-prepend, viewer-append, viewer-footer` (refer slots API). It is also possible to use other slots or elements outside vue-pdf-app.
+- Description: If default toolbar UI doesn't suit you it is possible to build custom toolbar. The prop contains elements ID to which to bind functionality. If element ID is specified in this prop appropriate button will be hidden in a default toolbar. May not work with UI framework components. That is because pdfjs internally manages attributes specific to a certain HTML element (for instance pdfjs toggles `disabled` attribute of a button but it won't if a div is used instead of a button). So it is better to use native HTML element specified as recommended in ID config specification below. Four slots are specially designed to build custom toolbar (are situated near a pdf page): `viewer-header, viewer-prepend, viewer-append, viewer-footer` (refer slots API). It is also possible to use other slots or elements outside vue-pdf-app.
 - Type: `ID config (see below)`
 - Required: `false`
 - Usage:
