@@ -1,3 +1,5 @@
+# Vue3 Pdf App
+
 Vue 3 PDF viewer based on Mozilla's PDFJS. Forked from https://github.com/sandanat/vue-pdf-app.
 
 [![npm (tag)](https://img.shields.io/npm/v/vue3-pdf-app/latest)](https://www.npmjs.com/package/vue3-pdf-app)
@@ -18,9 +20,9 @@ Easily localized configurable toolbar
 
 Toolbar custom UI
 
-Cross-browser support (including IE11)
+Cross-browser support
 
-Color customization (IE11 not supported)
+Color customization
 
 Buttons icons customization
 
@@ -28,7 +30,17 @@ Light/dark themes
 
 Built-in typescript support
 
-# Example
+![pdf sample](./readme/sample.png "Pdf expample")
+
+[Live demo](https://codesandbox.io/s/vue3-pdf-app-wnh9zs?file=/src/App.vue)
+
+[FAQ](https://github.com/stellr42/vue3-pdf-app/blob/master/FAQ.md)
+
+## Installation
+```
+npm install vue3-pdf-app
+```
+## Usage
 
 ```vue
 <template>
@@ -50,15 +62,9 @@ export default {
 </script>
 ```
 
-![pdf sample](./readme/sample.png "Pdf expample")
+## API
 
-[Live demo](https://codesandbox.io/s/vue3-pdf-app-wnh9zs?file=/src/App.vue)
-
-[FAQ](https://github.com/stellr42/vue3-pdf-app/blob/master/FAQ.md)
-
-# API
-
-## :pdf
+### :pdf
 
 - Type: `string | null | ArrayBuffer | TypedArray`
 - Required: `false`
@@ -69,7 +75,7 @@ export default {
 <vue-pdf-app :pdf="ArrayBuffer" />
 ```
 
-## :title
+### :title
 
 - Description: `true` renames document title to pdf file name.
 - Type: `boolean`
@@ -81,7 +87,7 @@ export default {
 <vue-pdf-app :title="true" />
 ```
 
-## :theme.sync
+### :theme.sync
 
 - Type: `"dark" | "light"`
 - Required: `false`
@@ -93,7 +99,7 @@ export default {
 <vue-pdf-app :theme.sync="theme" />
 ```
 
-## :fileName
+### :fileName
 
 - Description: when pdf is passed like an array buffer default download file name is `document.pdf`. Set this prop to override it.
 - Type: `string`
@@ -104,7 +110,7 @@ export default {
 <vue-pdf-app :pdf="ArrayBuffer" file-name="file name" />
 ```
 
-## :pageScale
+### :pageScale
 
 - Description: default page scale.
 - Type: `number | "page-actual"| "page-width"| "page-height"| "page-fit"| "auto"`
@@ -118,7 +124,7 @@ export default {
 <vue-pdf-app :page-scale="page-actual" />
 ```
 
-## :pageNumber
+### :pageNumber
 
 - Description: pdfjs stores last viewed page of a file in `window.localStorage.getItem("pdfjs.history")`. Specify the prop to override it.
 - Type: `number`
@@ -129,7 +135,7 @@ export default {
 <vue-pdf-app :page-number="1" />
 ```
 
-## :config
+### :config
 
 - Description: toolbar configuration. Toolbar is available by default. Specify `false` for buttons or whole group of buttons to disable them.
 - Type: `toolbar config (see below)`
@@ -229,7 +235,7 @@ export default {
 </code>
 </details>
 
-## :id-config
+### :id-config
 
 - Description: If default toolbar UI doesn't suit you it is possible to build custom toolbar. The prop contains elements ID to which to bind functionality. If element ID is specified in this prop appropriate button will be hidden in a default toolbar. May not work with UI framework components. That is because pdfjs internally manages attributes specific to a certain HTML element (for instance pdfjs toggles `disabled` attribute of a button but it won't if a div is used instead of a button). So it is better to use native HTML element specified as recommended in ID config specification below. Four slots are specially designed to build custom toolbar (are situated near a pdf page): `viewer-header, viewer-prepend, viewer-append, viewer-footer` (refer slots API). It is also possible to use other slots or elements outside vue-pdf-app.
 - Type: `ID config (see below)`
@@ -313,7 +319,7 @@ zoomOut?: string; // &lt;button&gt; tag is recommended
 
 > ℹ️ Note that elements must be in HTML document by the time vue-pdf-app is mounting (use `v-show` instead of `v-if` directive if necessary). Otherwise an error occurs.
 
-## @after-created(PDFViewerApplication)
+### @after-created(PDFViewerApplication)
 
 - Description: emitted only once when Pdfjs library is binded to vue component. Can be used to set Pdfjs config before pdf document opening.
 - Arguments:
@@ -324,7 +330,7 @@ zoomOut?: string; // &lt;button&gt; tag is recommended
 <vue-pdf-app @after-created="afterCreated" />
 ```
 
-## @open(PDFViewerApplication)
+### @open(PDFViewerApplication)
 
 - Description: emitted when pdf is opened but pages are not rendered.
 - Arguments:
@@ -335,7 +341,7 @@ zoomOut?: string; // &lt;button&gt; tag is recommended
 <vue-pdf-app @open="openHandler" />
 ```
 
-## @pages-rendered(PDFViewerApplication)
+### @pages-rendered(PDFViewerApplication)
 
 - Description: emitted when pdf document pages are rendered. Can be used to set default pages scale, for instance.
 - Arguments:
@@ -358,9 +364,9 @@ export default {
 
 > ℹ️ Events are triggered in the following order `after-created (once) => open => pages-rendered`
 
-## Slots
+### Slots
 
-### Slot names
+#### Slot names
 
 - toolbar-left-prepend
 - toolbar-left-append
@@ -378,7 +384,7 @@ export default {
 -  viewer-append: slot after `viewerContainer` div. Can be used to build custom toolbar.
 -  viewer-footer: slot after `viewer-append` slot. Can be used to build custom toolbar.
 
-### Slot props
+#### Slot props
 
 Each slot has props:
 
@@ -408,7 +414,7 @@ Each slot has props:
 </vue-pdf-app>
 ```
 
-# Color customization (IE11 not supported)
+## Color customization
 
 Colors of the pdf viewer are customized via custom css properties:
 
@@ -699,7 +705,7 @@ Colors of the pdf viewer are customized via custom css properties:
   </table>
 </details>
 
-# Icons customization
+## Icons customization
 
 To use default icons `import "vue3-pdf-app/dist/icons/main.css";`.
 
@@ -716,7 +722,7 @@ To use custom icons you have to implement [icons.css](https://github.com/sandana
 }
 ```
 
-# Light/dark themes
+## Light/dark themes
 
 <details>
 <summary>Algorithm of theme apply</summary>
@@ -735,14 +741,14 @@ The button can be implemented with slots:
 </vue-pdf-app>
 ```
 
-# Localized panel
+## Localized panel
 
 English is the default language for panel.
 Use `<link rel="resource" type="application/l10n" href="path-to-localization-file">` in your html for localization.
 See [localization file examples](https://github.com/mozilla/pdf.js/tree/master/l10n "file examples").
 
-# Examples
-## Lazy loading
+## Examples
+### Lazy loading
 
 PDFJS is a huge package (see the library size table above).
 So use lazy loading to split your bundle into small pieces.
@@ -775,7 +781,7 @@ export default {
 </script>
 ```
 
-## PDFJS interaction
+### PDFJS interaction
 
 You can interact with pdfjs library when pdf is opened via `open` event.
 
