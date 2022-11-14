@@ -1,6 +1,6 @@
 {
   "name": "vue3-pdf-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vue 3 PDF viewer",
   "main": "dist/vue3-pdf-app.umd.js",
   "unpkg": "dist/vue3-pdf-app.umd.min.js",
@@ -34,8 +34,7 @@
     "build:npm": "npm run build:lib & npm run build:icons",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "vue": "^3.0.0"
   },
