@@ -1055,7 +1055,6 @@ export default defineComponent({
     pageNumber: Number
   },
   setup (props, ctx) {
-    console.log('in setup')
     const defaultLocale = ref(JSON.stringify(locale))
     const isOpenHandlerBinded = ref(false)
     const isSidebarHidden = ref(true)
@@ -1177,6 +1176,7 @@ export default defineComponent({
             (fileMetadata: { contentDispositionFilename: null | string }) => {
               pdfApp.PDFViewerApplication.contentDispositionFilename =
                 props.fileName || fileMetadata.contentDispositionFilename
+              ctx.emit('pages-rendered', pdfApp.PDFViewerApplication)
             }
           )
           .catch(errorHandler)
