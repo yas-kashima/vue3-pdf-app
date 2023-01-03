@@ -1170,6 +1170,11 @@ export default defineComponent({
       } else {
         pdfApp.PDFViewerApplication.open(props.pdf)
           .then(() => {
+            if (props.pageNumber) {
+              setTimeout(
+                () => (pdfApp.PDFViewerApplication.page = props.pageNumber)
+              )
+            }
             return pdfApp.PDFViewerApplication.pdfDocument?.getMetadata()
           })
           .then(
